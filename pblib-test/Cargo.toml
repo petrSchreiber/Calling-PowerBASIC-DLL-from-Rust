@@ -1,0 +1,7 @@
+[package]
+name = "pblib-test"
+version = "0.1.0"
+authors = ["petrSchreiber <petrschreiber@gmail.com>"]
+
+[dependencies]
+libloading = "0.5"
