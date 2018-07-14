@@ -8,21 +8,15 @@
 ' - Use 'cdecl' to prevent esoteric behaviour
 ' - Use 'export' to make the function visible in DLL
 
+sub println(byVal message as string)
+  local hOutput, bytesWritten as dword
+  message += chr$(10)
+  hOutput = GetStdHandle(%STD_OUTPUT_HANDLE)
+  WriteFile hOutput, byVal strptr(message), len(message), byVal varPtr(bytesWritten), byVal %NULL
+end sub
+
 ' Functions and procedures exposed to DLL user follow
-
-sub passing_byte_byval alias "passing_byte_byval" (byVal n as byte) export cdecl
-  msgbox "Value passed to passing_byte_byval: " + format$(n)
-end sub
-
-sub passing_byte_byref alias "passing_byte_byref" (byRef n as byte) export cdecl
-  msgbox "Value passed to passing_byte_byref: " + format$(n)
-end sub
-
-sub passing_byte_byref_with_change alias "passing_byte_byref_with_change" (byRef n as byte) export cdecl
-  msgbox "Value passed to passing_byte_byref2: " + format$(n)
-  n = 123
-  msgbox "Value changed in passing_byte_byref2 to: " + format$(n)
-end sub
+#include "unsigned_integers.inc"  ' BYTE, WORD, DWORD
 
 ' Needed for proper loading/unloading
 function libmain alias "LibMain" (byVal hInstance   as long, _

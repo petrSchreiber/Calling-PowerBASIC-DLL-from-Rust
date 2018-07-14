@@ -20,7 +20,7 @@ You will need PowerBASIC for Windows version 10.04 to compile the DLL and Rust t
 ### How to make the DLL?
 * Open `pblib/pblib.bas` in PBEdit and press Ctrl+M
 * If you think it did nothing, it did - PowerBASIC is really a blazingly fast compiler
-* The DLL will be automagically put to `target\release` as `pblib.dll`
+* The DLL will be automagically put to `pblib-test/target/release` as `pblib.dll`
 
 ### How to test the DLL?
 * Go to `pblib-test` directory
