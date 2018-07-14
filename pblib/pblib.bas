@@ -17,6 +17,7 @@ end sub
 
 ' Functions and procedures exposed to DLL user follow
 #include "unsigned_integers.inc"  ' BYTE, WORD, DWORD
+#include "signed_integers.inc"    ' INTEGER, LONG, QUAD
 
 ' Needed for proper loading/unloading
 function libmain alias "LibMain" (byVal hInstance   as long, _
