@@ -1,5 +1,6 @@
 mod unsigned_integers;
 mod signed_integers;
+mod floating_points;
 
 fn main() {    
 
@@ -24,5 +25,13 @@ fn main() {
     
     println!("{:-^80}", " QUAD ");
     signed_integers::test_quads();
+
+    println!("{:=^80}", " FLOATING POINTS ");
+    
+    println!("{:-^80}", " SINGLE ");
+    floating_points::test_singles();
+    
+    println!("{:-^80}", " DOUBLE ");
+    floating_points::test_doubles();
 
 }
