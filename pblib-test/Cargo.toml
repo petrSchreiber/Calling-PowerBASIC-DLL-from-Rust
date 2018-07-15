@@ -5,3 +5,5 @@ authors = ["petrSchreiber <petrschreiber@gmail.com>"]
 
 [dependencies]
 libloading = "0.5"
+ascii = "0.9.0"
+winapi = { version = "0.3", features = ["winnt", "combaseapi", "oleauto", "roapi", "roerrorapi", "hstring", "winstring", "winerror", "restrictederrorinfo"] }

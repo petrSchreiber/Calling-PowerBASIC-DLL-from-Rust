@@ -32,7 +32,7 @@ pub fn test_stringzs()
         println!("Passing text={:?} 'passing_stringz_ptr'", text);
         passing_stringz_ptr_with_change(text.as_ptr());
         let result = CStr::from_ptr(ptr).to_string_lossy().into_owned();
-        println!("text changed to {}", result);
+        println!("text changed to {:?}", result);
         println!();        
     }    
 }

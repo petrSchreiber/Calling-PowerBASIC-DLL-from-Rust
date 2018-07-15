@@ -2,6 +2,7 @@ mod unsigned_integers;
 mod signed_integers;
 mod floating_points;
 mod fixed_length_strings;
+mod dynamic_strings;
 
 fn main() {    
 
@@ -39,4 +40,9 @@ fn main() {
 
     println!("{:-^80}", " STRINGZ/ASCIIZ ");
     fixed_length_strings::test_stringzs();
+
+    println!("{:=^80}", " DYNAMIC STRINGS ");    
+
+    println!("{:-^80}", " STRING ");
+    dynamic_strings::test_strings();    
 }
