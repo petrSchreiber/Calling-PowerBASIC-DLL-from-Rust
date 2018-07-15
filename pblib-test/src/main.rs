@@ -1,6 +1,7 @@
 mod unsigned_integers;
 mod signed_integers;
 mod floating_points;
+mod fixed_length_strings;
 
 fn main() {    
 
@@ -34,4 +35,8 @@ fn main() {
     println!("{:-^80}", " DOUBLE ");
     floating_points::test_doubles();
 
+    println!("{:=^80}", " FIXED LENGTH STRINGS ");    
+
+    println!("{:-^80}", " STRINGZ/ASCIIZ ");
+    fixed_length_strings::test_stringzs();
 }
