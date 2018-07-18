@@ -13,9 +13,9 @@ pub fn test_stringzs()
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
         // Declaring our functions from DLL
-        let passing_stringz_byref: libloading::Symbol<unsafe extern fn(*const c_char)> = pblib.get(b"passing_stringz_byref").unwrap();
-        let passing_stringz_ptr: libloading::Symbol<unsafe extern fn(*const c_char)> = pblib.get(b"passing_stringz_ptr").unwrap();
-        let passing_stringz_ptr_with_change: libloading::Symbol<unsafe extern fn(*const c_char)> = pblib.get(b"passing_stringz_ptr_with_change").unwrap();
+        let passing_stringz_byref: libloading::Symbol<unsafe extern "stdcall" fn(*const c_char)> = pblib.get(b"passing_stringz_byref").unwrap();
+        let passing_stringz_ptr: libloading::Symbol<unsafe extern "stdcall" fn(*const c_char)> = pblib.get(b"passing_stringz_ptr").unwrap();
+        let passing_stringz_ptr_with_change: libloading::Symbol<unsafe extern "stdcall" fn(*const c_char)> = pblib.get(b"passing_stringz_ptr_with_change").unwrap();
 
         // Calling the functions        
         let text = CString::new("Hello, world!").unwrap();

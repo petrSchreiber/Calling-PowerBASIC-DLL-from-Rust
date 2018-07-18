@@ -5,7 +5,6 @@
 
 ' General advice:
 ' - Use 'alias' to define procedure name in DLL
-' - Use 'cdecl' to prevent esoteric behaviour
 ' - Use 'export' to make the function visible in DLL
 
 sub println(byVal message as string)

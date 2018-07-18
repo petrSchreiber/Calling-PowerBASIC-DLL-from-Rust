@@ -9,10 +9,10 @@ pub fn test_integers()
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
         // Declaring our functions from DLL
-        let passing_integer_byval: libloading::Symbol<unsafe extern fn(i16)> = pblib.get(b"passing_integer_byval").unwrap();
-        let passing_integer_byref: libloading::Symbol<unsafe extern fn(*mut i16)> = pblib.get(b"passing_integer_byref").unwrap();
-        let passing_integer_byref_with_change: libloading::Symbol<unsafe extern fn(*mut i16)> = pblib.get(b"passing_integer_byref_with_change").unwrap();
-        let returning_integer: libloading::Symbol<unsafe extern fn() -> i16> = pblib.get(b"returning_integer").unwrap();
+        let passing_integer_byval: libloading::Symbol<unsafe extern "stdcall" fn(i16)> = pblib.get(b"passing_integer_byval").unwrap();
+        let passing_integer_byref: libloading::Symbol<unsafe extern "stdcall" fn(*mut i16)> = pblib.get(b"passing_integer_byref").unwrap();
+        let passing_integer_byref_with_change: libloading::Symbol<unsafe extern "stdcall" fn(*mut i16)> = pblib.get(b"passing_integer_byref_with_change").unwrap();
+        let returning_integer: libloading::Symbol<unsafe extern "stdcall" fn() -> i16> = pblib.get(b"returning_integer").unwrap();
 
         // Calling the functions        
         let mut i16_var:i16 = 20000;
@@ -45,10 +45,10 @@ pub fn test_longs()
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
         // Declaring our functions from DLL
-        let passing_long_byval: libloading::Symbol<unsafe extern fn(i32)> = pblib.get(b"passing_long_byval").unwrap();
-        let passing_long_byref: libloading::Symbol<unsafe extern fn(*mut i32)> = pblib.get(b"passing_long_byref").unwrap();
-        let passing_long_byref_with_change: libloading::Symbol<unsafe extern fn(*mut i32)> = pblib.get(b"passing_long_byref_with_change").unwrap();
-        let returning_long: libloading::Symbol<unsafe extern fn() -> i32> = pblib.get(b"returning_long").unwrap();
+        let passing_long_byval: libloading::Symbol<unsafe extern "stdcall" fn(i32)> = pblib.get(b"passing_long_byval").unwrap();
+        let passing_long_byref: libloading::Symbol<unsafe extern "stdcall" fn(*mut i32)> = pblib.get(b"passing_long_byref").unwrap();
+        let passing_long_byref_with_change: libloading::Symbol<unsafe extern "stdcall" fn(*mut i32)> = pblib.get(b"passing_long_byref_with_change").unwrap();
+        let returning_long: libloading::Symbol<unsafe extern "stdcall" fn() -> i32> = pblib.get(b"returning_long").unwrap();
 
         // Calling the functions        
         let mut i32_var:i32 = 1500000000;
@@ -81,10 +81,10 @@ pub fn test_quads()
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
         // Declaring our functions from DLL
-        let passing_quad_byval: libloading::Symbol<unsafe extern fn(i64)> = pblib.get(b"passing_quad_byval").unwrap();
-        let passing_quad_byref: libloading::Symbol<unsafe extern fn(*mut i64)> = pblib.get(b"passing_quad_byref").unwrap();
-        let passing_quad_byref_with_change: libloading::Symbol<unsafe extern fn(*mut i64)> = pblib.get(b"passing_quad_byref_with_change").unwrap();
-        let returning_quad: libloading::Symbol<unsafe extern fn() -> i64> = pblib.get(b"returning_quad").unwrap();
+        let passing_quad_byval: libloading::Symbol<unsafe extern "stdcall" fn(i64)> = pblib.get(b"passing_quad_byval").unwrap();
+        let passing_quad_byref: libloading::Symbol<unsafe extern "stdcall" fn(*mut i64)> = pblib.get(b"passing_quad_byref").unwrap();
+        let passing_quad_byref_with_change: libloading::Symbol<unsafe extern "stdcall" fn(*mut i64)> = pblib.get(b"passing_quad_byref_with_change").unwrap();
+        let returning_quad: libloading::Symbol<unsafe extern "stdcall" fn() -> i64> = pblib.get(b"returning_quad").unwrap();
 
         // Calling the functions        
         let mut i64_var:i64 = 4900000000;

@@ -75,9 +75,9 @@ pub fn test_strings()
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
         // Declaring our functions from DLL
-        let passing_string_byval: libloading::Symbol<unsafe extern fn(PowerString)> = pblib.get(b"passing_string_byval").unwrap();
-        let passing_string_byref: libloading::Symbol<unsafe extern fn(*mut PowerString)> = pblib.get(b"passing_string_byref").unwrap();
-        let passing_string_byref_with_change: libloading::Symbol<unsafe extern fn(*mut PowerString)> = pblib.get(b"passing_string_byref_with_change").unwrap();
+        let passing_string_byval: libloading::Symbol<unsafe extern "stdcall" fn(PowerString)> = pblib.get(b"passing_string_byval").unwrap();
+        let passing_string_byref: libloading::Symbol<unsafe extern "stdcall" fn(*mut PowerString)> = pblib.get(b"passing_string_byref").unwrap();
+        let passing_string_byref_with_change: libloading::Symbol<unsafe extern "stdcall" fn(*mut PowerString)> = pblib.get(b"passing_string_byref_with_change").unwrap();
 
         let text1 = PowerString::from("Ciao PowerBASIC, sending something byVal");
         println!("Passing text={:?} 'passing_string_byval'", text1.to_string());
