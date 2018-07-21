@@ -1,10 +1,8 @@
 // Cargo for DLL support
 extern crate libloading;
 
-pub fn test_bytes()
-{
-    unsafe
-    {
+pub fn test_bytes() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
@@ -37,10 +35,8 @@ pub fn test_bytes()
     }    
 }
 
-pub fn test_words()
-{
-    unsafe
-    {
+pub fn test_words() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
@@ -73,10 +69,8 @@ pub fn test_words()
     }    
 }
 
-pub fn test_dwords()
-{
-    unsafe
-    {
+pub fn test_dwords() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 

@@ -5,18 +5,11 @@ extern crate winapi;
 
 // Adjusting the signatures for our use
 extern "system" {
-    pub fn SysAllocStringByteLen(
-        psz: *const u8,
-        len: usize,
-        ) -> *const u8;
+    pub fn SysAllocStringByteLen(psz: *const u8, len: usize) -> *const u8;
 
-    pub fn SysFreeString(
-        bstrString: *const u8
-    );
+    pub fn SysFreeString(bstrString: *const u8);
 
-    pub fn SysStringByteLen(
-        bstr: *const u8
-    ) -> u32;    
+    pub fn SysStringByteLen(bstr: *const u8) -> u32;    
 }
 
 // Custom PowerString
@@ -26,8 +19,7 @@ pub struct PowerString(*const u8);
 impl<'a> From<&'a str> for PowerString {
     
     fn from(str_text: &'a str) -> Self {
-        unsafe
-        {
+        unsafe {
             let ascii_str = ascii::AsciiStr::from_ascii(str_text).unwrap();
             let byte_slice = ascii_str.as_bytes();
             let ptr = SysAllocStringByteLen(&byte_slice[0], ascii_str.len());
@@ -41,8 +33,7 @@ impl<'a> From<&'a str> for PowerString {
 impl Drop for PowerString {
     #[inline(always)]
     fn drop(&mut self) {
-        unsafe
-        {
+        unsafe {
             SysFreeString(self.0);
         }
     }
@@ -67,10 +58,8 @@ impl PowerString
     }      
 }
 
-pub fn test_strings()
-{
-    unsafe
-    {
+pub fn test_strings() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 

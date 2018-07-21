@@ -1,10 +1,8 @@
 // Cargo for DLL support
 extern crate libloading;
 
-pub fn test_integers()
-{
-    unsafe
-    {
+pub fn test_integers() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
@@ -37,10 +35,8 @@ pub fn test_integers()
     }    
 }
 
-pub fn test_longs()
-{
-    unsafe
-    {
+pub fn test_longs() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
@@ -73,10 +69,8 @@ pub fn test_longs()
     }    
 }
 
-pub fn test_quads()
-{
-    unsafe
-    {
+pub fn test_quads() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 

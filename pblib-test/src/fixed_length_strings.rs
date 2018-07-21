@@ -5,10 +5,8 @@ use std::ffi::CString;
 use std::ffi::CStr;
 use std::os::raw::c_char;
 
-pub fn test_stringzs()
-{
-    unsafe
-    {
+pub fn test_stringzs() {
+    unsafe {
         // Loading our DLL
         let pblib: libloading::Library = libloading::Library::new("pblib.dll").unwrap();
 
