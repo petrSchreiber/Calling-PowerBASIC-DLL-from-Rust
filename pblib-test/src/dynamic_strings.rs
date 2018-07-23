@@ -31,6 +31,7 @@ impl<'a> From<&'a str> for PowerString {
 
 // For releasing
 impl Drop for PowerString {
+
     #[inline(always)]
     fn drop(&mut self) {
         unsafe {
@@ -39,9 +40,21 @@ impl Drop for PowerString {
     }
 }
 
+use std::ops::Deref;
+impl Deref for PowerString {
+
+    type Target = str;
+    fn deref(&self) -> &str {
+        unsafe {
+            let len = self.len();
+            let slice: &[u8] = ::std::slice::from_raw_parts(self.0, len as usize);
+            ::std::str::from_utf8(slice).unwrap()
+        }
+    }
+}
+
 // Convenient, custom functions
-impl PowerString
-{
+impl PowerString {
     pub fn len(&self) -> u32 {
         unsafe {
             SysStringByteLen(self.0)
@@ -50,7 +63,7 @@ impl PowerString
     
     pub fn to_string<'v>(&self) -> String {
         unsafe {
-            let len = self.len();            
+            let len = self.len();
             let slice: &[u8] = ::std::slice::from_raw_parts(self.0, len as usize);
 
             String::from(::std::str::from_utf8(slice).unwrap())
@@ -82,6 +95,10 @@ pub fn test_strings() {
         println!("Passing text={:?} 'passing_string_byref_with_change'", text3.to_string());        
         passing_string_byref_with_change(&mut text3);
         println!("text changed to {:?}", text3.to_string());
+        println!();
+
+        // Here we receive &str thanks to Deref
+        println!("text changed to (via Deref, faster): {:?}", &*text3);
         println!();
     }    
 }
