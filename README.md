@@ -9,7 +9,7 @@ You will need PowerBASIC for Windows version 10.04 to compile the DLL and Rust t
 
 ### Installing Rust
 * Download and install the [Build Tools for Visual Studio](https://www.visualstudio.com/cs/downloads/?q=Build+Tools+for+Visual+Studio).
-* [Install Rust](https://www.rust-lang.org/en-US/install.html) via Rustup. **Please** customize the installation to ensure 32 bit pipeline currently needed by ThinBASIC:
+* [Install Rust](https://www.rust-lang.org/en-US/install.html) via Rustup. **Please** customize the installation to ensure 32 bit pipeline currently needed by PowerBASIC:
   * Run the rustup-init.exe
   * Press *2* to alter the default settings
   * For *Default host triple?* enter *i686-pc-windows-msvc*
@@ -24,8 +24,8 @@ You will need PowerBASIC for Windows version 10.04 to compile the DLL and Rust t
 
 ### How to test the DLL?
 * Go to `pblib-test` directory
-* Execute `cargo run --release` in the root directory of this repo         
+* Execute `cargo run --release` in the root directory of this repo
+* go to `pblib-test/target/release` and run `pblib-test.exe`
 
 ## IDE recommendations
 I strongly recommend [Sublime Text 3](https://www.sublimetext.com/3) for Rust editing. It is very elegant. Just boost it with [rust-enhanced](https://github.com/rust-lang/rust-enhanced) plugin.
-
